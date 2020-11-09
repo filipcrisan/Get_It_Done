@@ -2,6 +2,7 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy 
 from flask_login import LoginManager
 from flask_migrate import Migrate 
+from project import config
 
 db = SQLAlchemy() 
 migrate = Migrate()
@@ -9,7 +10,7 @@ migrate = Migrate()
 def create_app():
 	app = Flask(__name__)
 
-	app.config['SECRET_KEY'] = b'\x0e\x9b\rT\x94\x8e\xe7\x1c\xcfEYc\xf6~\xaf\xb1'
+	app.config['SECRET_KEY'] = config.secret_key 
 	app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite'
 	app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False 
 
