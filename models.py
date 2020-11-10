@@ -1,5 +1,5 @@
 from flask_login import UserMixin
-from . import db
+from app import db
 from datetime import datetime
 
 # change --> flask db migrate --> flask db upgrade
