@@ -1,32 +1,39 @@
-from flask import Flask 
-from flask_sqlalchemy import SQLAlchemy 
+"""
+    The app is assembled here, based on the database, migrations, login manager and the needed blueprints.
+"""
+from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
-from flask_migrate import Migrate 
+from flask_migrate import Migrate
+import os
 
 
-db = SQLAlchemy() 
+# the actual app, with config variables
+app = Flask(__name__, instance_relative_config=True)
+app.config.from_pyfile('config.py')
+
+
+# create the database and the migration system and link them to the app
+db = SQLAlchemy()
 migrate = Migrate()
-
-
-app = Flask(__name__)
-
-app.config['SECRET_KEY'] = b'9\xe0_H\x03\xb1\x10TVR\xfd\x19\xda\xab\xa2\\\xe8`\xd4\xde\xa3Z\x12\xc9' 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False 
-
-db.init_app(app) 
+db.init_app(app)
 migrate.init_app(app, db)
 
+# create the login manager and link it to the app
 login_manager = LoginManager()
 login_manager.login_view = 'auth.login'
 login_manager.init_app(app)
 
+
 from models import User
+
 
 @login_manager.user_loader
 def load_user(user_id):
-	return User.query.get(int(user_id))
+    return User.query.get(int(user_id))
 
+
+# register the blueprints
 from auth import auth as auth_bp
 app.register_blueprint(auth_bp)
 
