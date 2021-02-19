@@ -1,5 +1,5 @@
 """
-    The app is assembled here, based on the database, migrations, login manager and the needed blueprints.
+    The app is assembled based on the database, migrations, login manager and the needed blueprints.
 """
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
