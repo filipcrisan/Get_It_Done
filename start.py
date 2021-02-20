@@ -34,11 +34,18 @@ def load_user(user_id):
 
 
 # register the blueprints
-from auth import auth as auth_bp
-app.register_blueprint(auth_bp)
+from authentication.auth import auth as auth_bp
+from services.index import index_bp
+from services.projects import projects_bp
+from services.tasks import tasks_bp
+from services.profile import profile_bp
 
-from main import main as main_bp
-app.register_blueprint(main_bp)
+
+app.register_blueprint(auth_bp)
+app.register_blueprint(index_bp)
+app.register_blueprint(projects_bp)
+app.register_blueprint(tasks_bp)
+app.register_blueprint(profile_bp)
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))

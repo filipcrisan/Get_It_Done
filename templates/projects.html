@@ -191,7 +191,7 @@
                   <tbody>
                     {% for proj in data: %}
                     <tr>
-                      <td> <a href="{{ url_for('main.curr_proj', id=proj.id)}}">{{ proj.name }}</a> </td>
+                      <td> <a href="{{ url_for('projects.curr_proj', id=proj.id)}}">{{ proj.name }}</a> </td>
                       <td> {{ proj.description }} </td>
                       <td> {{ proj.creation_date.date() }} </td>
                     </tr>

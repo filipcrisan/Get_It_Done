@@ -196,7 +196,7 @@
                       <td> 
                         {% if task.state != 'Done' %}
 
-                          <form method="POST" action="{{ url_for('main.update_task', id=task.id) }}">
+                          <form method="POST" action="{{ url_for('tasks.update_task', id=task.id) }}">
 
                             <div class="d-sm-flex align-items-center justify-content-between">
 
