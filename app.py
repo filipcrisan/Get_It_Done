@@ -25,7 +25,7 @@ login_manager.login_view = 'auth.login'
 login_manager.init_app(app)
 
 
-from models import User
+from repository.models import User
 
 
 @login_manager.user_loader
