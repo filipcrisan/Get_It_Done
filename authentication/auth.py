@@ -18,7 +18,7 @@ auth = Blueprint('auth', __name__)
 @auth.route('/login')
 def login():
     if current_user.is_authenticated:
-        return redirect(url_for('main.index'))
+        return redirect(url_for('index.index'))
 
     return render_template('login.html')
 
@@ -40,7 +40,7 @@ def login_post():
         return redirect(url_for('auth.login'))
 
     login_user(user, remember=remember)
-    return redirect(url_for('main.index'))
+    return redirect(url_for('index.index'))
 
 
 # LOGOUT ===============================================================================================================
@@ -59,7 +59,7 @@ def logout():
 @auth.route('/register')
 def register():
     if current_user.is_authenticated:
-        return redirect(url_for('main.index'))
+        return redirect(url_for('index.index'))
 
     return render_template('register.html')
 

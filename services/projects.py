@@ -40,17 +40,17 @@ def new_project_post():
 
     if not name:
         flash('Project must have a title')
-        return redirect(url_for('main.new_project'))
+        return redirect(url_for('projects.new_project'))
 
     existing_project = Project.query.filter_by(name=name).first()
 
     if existing_project:
         flash('Project title already exists')
-        return redirect(url_for('main.new_project'))
+        return redirect(url_for('projects.new_project'))
 
     if not contributors:
         flash('Project must have contributors')
-        return redirect(url_for('main.new_project'))
+        return redirect(url_for('projects.new_project'))
 
     new_proj = Project(name=name, description=description)
 
@@ -77,7 +77,7 @@ def get_proj(id):
 
     if not proj:
         flash('Project does not exist')
-        return redirect(url_for('main.projects'))
+        return redirect(url_for('projects.projects'))
     return proj
 
 
@@ -104,7 +104,7 @@ def curr_proj_post(id):
 
     if not description or not priority or not assigned_to:
         flash('Task form failed. Please fill in everything')
-        return redirect(url_for('main.curr_proj', id=id))
+        return redirect(url_for('projects.curr_proj', id=id))
 
     assigned_to_id = User.query.filter_by(email=assigned_to).first().id
 
@@ -154,13 +154,13 @@ def update_project_post(id):
 
     if not name:
         flash('Project must have a title')
-        return redirect(url_for('main.curr_proj', id=id))
+        return redirect(url_for('projects.curr_proj', id=id))
 
     existing_project = Project.query.filter_by(name=name).first()
 
     if existing_project and proj.name != name:
         flash('Project title already exists')
-        return redirect(url_for('main.curr_proj', id=id))
+        return redirect(url_for('projects.curr_proj', id=id))
 
     proj.name = name
     proj.description = description
