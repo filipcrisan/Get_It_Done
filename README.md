@@ -38,9 +38,6 @@ A secure registration, with a nice greeting face.
 Yes, it's the same pug.
 <img width="1440" alt="Screenshot 2021-03-31 at 21 28 36" src="https://user-images.githubusercontent.com/66752246/113194038-5928ce80-9269-11eb-8c08-a9a153149eca.png">
 
-### Main dashboard
-<img width="1440" alt="Screenshot 2021-03-31 at 21 28 53" src="https://user-images.githubusercontent.com/66752246/113194200-89706d00-9269-11eb-934a-1b7aae38dcb6.png">
-
 ### Projects
 A really simple to use table of projects, with easy search and sort by different criterias.
 <img width="1440" alt="Screenshot 2021-03-31 at 21 31 18" src="https://user-images.githubusercontent.com/66752246/113194388-c2104680-9269-11eb-9791-7536a216eb42.png">
