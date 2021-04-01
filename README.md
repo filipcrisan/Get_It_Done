@@ -2,6 +2,7 @@
 Product management tool/Bug tracker
 
 Helpful tool for delivering any kind of products in time, using a task assignment system.
+This project was the best way for me to familiarize with full-stack development: understand databases, requests, connect the front-end with the back-end and many more. Moreover, not only it's a really nice web application for teams, but it can also be used for personal productivity.
 
 ## Setup
 First, you need to install the requirements:
